@@ -23,6 +23,6 @@ public class Foyer {
     long capaciteFoyer;
     @OneToOne(mappedBy = "foyer")
     Universite universite;
-//    @OneToMany(mappedBy = "foyer") a verifier Unidirectionnelle ou Bidirectionnelle
-//    List<Bloc> blocs = new ArrayList<>();
+     @OneToMany(mappedBy = "foyer") //a verifier Unidirectionnelle ou Bidirectionnelle
+     List<Bloc> blocs = new ArrayList<>();
 }
