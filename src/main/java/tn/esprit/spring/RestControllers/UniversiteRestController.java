@@ -9,25 +9,26 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/universite/")
 public class UniversiteRestController {
     IUniversiteService iUniversiteService;
 
-    @GetMapping("getAllUniversites")
+    @GetMapping("getAll")
     public List<Universite> getAll() {
         return iUniversiteService.findAllUniversites();
     }
 
-    @GetMapping("getUniversiteById")
+    @GetMapping("getById")
     public Universite getById(@RequestParam long id) {
         return iUniversiteService.findUniversiteById(id);
     }
 
-    @PostMapping("addUniversite")
+    @PostMapping("add")
     public Universite addUniversite(@RequestBody Universite universite) {
         return iUniversiteService.addUniversite(universite);
     }
 
-    @PostMapping("addAllUniversites")
+    @PostMapping("addAll")
     public List<Universite> addAllUniversite(@RequestBody List<Universite> universites) {
         return iUniversiteService.addAllUniversites(universites);
     }

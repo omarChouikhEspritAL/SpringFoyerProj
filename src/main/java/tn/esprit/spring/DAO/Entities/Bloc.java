@@ -1,8 +1,11 @@
 package tn.esprit.spring.DAO.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -18,6 +21,9 @@ public class Bloc {
     long idBloc;
     String nomBloc;
     long capaciteBloc;
+    @OneToMany
+    @JsonIgnore
+    List<Chambre>chambres;
     @ManyToOne
     Foyer foyer;
 }

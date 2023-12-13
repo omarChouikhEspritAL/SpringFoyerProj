@@ -9,25 +9,26 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/etudiant/")
 public class EtudiantRestController {
     IEtudiantService iEtudiantService;
 
-    @GetMapping("getAllEtudiant")
+    @GetMapping("getAll")
     public List<Etudiant> getAll() {
         return iEtudiantService.findAllEtudiants();
     }
 
-    @GetMapping("getEtudiantById")
+    @GetMapping("getById")
     public Etudiant getById(@RequestParam long id) {
         return iEtudiantService.findEtudiantById(id);
     }
 
-    @PostMapping("addEtudiant")
+    @PostMapping("add")
     public Etudiant addChmbre(@RequestBody Etudiant etudiant) {
         return iEtudiantService.addEtudiant(etudiant);
     }
 
-    @PostMapping("addAllEtudiants")
+    @PostMapping("addAll")
     public List<Etudiant> addAllEtudiants(@RequestBody List<Etudiant> etudiants) {
         return iEtudiantService.addAllEtudiants(etudiants);
     }

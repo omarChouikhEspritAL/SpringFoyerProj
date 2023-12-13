@@ -9,25 +9,26 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/foyer/")
 public class FoyerRestController {
     IFoyerService iFoyerService;
 
-    @GetMapping("getAllFoyer")
+    @GetMapping("getAll")
     public List<Foyer> getAll() {
         return iFoyerService.findAllFoyers();
     }
 
-    @GetMapping("getFoyerById")
+    @GetMapping("getById")
     public Foyer getById(@RequestParam long id) {
         return iFoyerService.findFoyerById(id);
     }
 
-    @PostMapping("addFoyer")
+    @PostMapping("add")
     public Foyer addChmbre(@RequestBody Foyer foyer) {
         return iFoyerService.addFoyer(foyer);
     }
 
-    @PostMapping("addAllFoyers")
+    @PostMapping("addAll")
     public List<Foyer> addAllFoyers(@RequestBody List<Foyer> foyers) {
         return iFoyerService.addAllFoyers(foyers);
     }

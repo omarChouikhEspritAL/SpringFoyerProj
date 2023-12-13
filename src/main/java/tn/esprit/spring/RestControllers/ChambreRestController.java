@@ -9,25 +9,26 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/chambre/")
 public class ChambreRestController {
     IChambreService iChambreService;
 
-    @GetMapping("getAllChambre")
+    @GetMapping("getAll")
     public List<Chambre> getAll() {
         return iChambreService.findAllChambres();
     }
 
-    @GetMapping("getChambreById")
+    @GetMapping("getById")
     public Chambre getById(@RequestParam long id) {
         return iChambreService.findChambreById(id);
     }
 
-    @PostMapping("addChambre")
+    @PostMapping("add")
     public Chambre addChambre(@RequestBody Chambre chambre) {
         return iChambreService.addChambre(chambre);
     }
 
-    @PostMapping("addAllChambres")
+    @PostMapping("addAll")
     public List<Chambre> addAllChambres(@RequestBody List<Chambre> chambres) {
         return iChambreService.addAllChambres(chambres);
     }

@@ -9,25 +9,26 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/reservation/")
 public class ReservationRestController {
     IReservationService iReservationService;
 
-    @GetMapping("getAllReservations")
+    @GetMapping("getAll")
     public List<Reservation> getAll() {
         return iReservationService.findAllReservations();
     }
 
-    @GetMapping("getReservationById")
+    @GetMapping("getById")
     public Reservation getById(@RequestParam String id) {
         return iReservationService.findReservationById(id);
     }
 
-    @PostMapping("addReservation")
+    @PostMapping("add")
     public Reservation addChmbre(@RequestBody Reservation reservation) {
         return iReservationService.addReservation(reservation);
     }
 
-    @PostMapping("addAllReservation")
+    @PostMapping("addAll")
     public List<Reservation> addAllChambres(@RequestBody List<Reservation> reservations) {
         return iReservationService.addAllReservations(reservations);
     }

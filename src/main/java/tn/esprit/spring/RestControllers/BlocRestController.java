@@ -8,31 +8,32 @@ import tn.esprit.spring.Services.IBlocService;
 import java.util.List;
 
 @RestController
+@RequestMapping("/bloc/")
 @AllArgsConstructor
 public class BlocRestController {
     IBlocService iBlocService;
 
-    @GetMapping("getAllBlocs")
+    @GetMapping("getAll")
     public List<Bloc> getAll() {
         return iBlocService.findAllBlocs();
     }
 
-    @PostMapping("addBloc")
+    @PostMapping("add")
     public Bloc addBloc(@RequestBody Bloc b) {
         return iBlocService.addBloc(b);
     }
 
-    @PostMapping("addAllBlocs")
+    @PostMapping("addAll")
     public List<Bloc> addAllBlocs(@RequestBody List<Bloc> blocs) {
         return iBlocService.addAllBlocs(blocs);
     }
 
-    @GetMapping("getBlocById")
+    @GetMapping("getById")
     public Bloc getById(@RequestParam long id) {
         return iBlocService.findBlocById(id);
     }
 
-    @GetMapping("getByIdP/{id}")
+    @GetMapping("getById/{id}")
     public Bloc getByIdP(@PathVariable long id) {
         return iBlocService.findBlocById(id);
     }
